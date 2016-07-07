@@ -1,4 +1,4 @@
-# GitHub Enhanced Comments
+# Smart Mute Chrome Extension
 
 ## Development
 
