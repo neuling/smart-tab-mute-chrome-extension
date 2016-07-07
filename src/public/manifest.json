@@ -8,11 +8,16 @@
     "48": "images/icon128.png",
     "128": "images/icon128.png"
   },
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  },
   "background": {
     "scripts": ["js/background.js"],
     "persistent": false
   },
   "permissions": [
-    "tabs"
+    "tabs",
+    "storage"
   ]
 }

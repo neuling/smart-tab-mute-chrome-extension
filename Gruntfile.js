@@ -35,33 +35,38 @@ module.exports = function(grunt) {
       }
     },
 
-    // sass: {
-    //   dev: {
-    //     options: {
-    //       style: "expanded",
-    //       includePaths: [].concat(require('node-bourbon').includePaths).concat(require('node-neat').includePaths),
-    //       noCache: true,
-    //       sourceMap: false
-    //     },
-    //     files: {
-    //       "<%= grunt.config.get('buildDir') %>/css/content_styles.css": "src/stylesheets/content_styles.sass"
-    //     }
-    //   }
-    // },
+    sass: {
+      dev: {
+        options: {
+          style: "expanded",
+          noCache: true,
+          sourceMap: false
+        },
+        files: [
+          {
+            expand: true,
+            cwd: "src/stylesheets",
+            src: "*.sass",
+            dest: "<%= grunt.config.get('buildDir') %>/css",
+            ext: ".css"
+          }
+        ]
+      }
+    },
 
-    // jade: {
-    //   compile: {
-    //     files: [
-    //       {
-    //         expand: true,
-    //         cwd: "src/views",
-    //         src: "**/*.jade",
-    //         dest: "<%= grunt.config.get('buildDir') %>/",
-    //         ext: ".html"
-    //       }
-    //     ]
-    //   }
-    // },
+    jade: {
+      compile: {
+        files: [
+          {
+            expand: true,
+            cwd: "src/views",
+            src: "*.jade",
+            dest: "<%= grunt.config.get('buildDir') %>/",
+            ext: ".html"
+          }
+        ]
+      }
+    },
 
     uglify: {
       options: {
@@ -84,6 +89,7 @@ module.exports = function(grunt) {
       someName: {
         entry: {
           background: "./src/javascripts/background.js",
+          options: "./src/javascripts/options.js"
         },
         output: {
           path: "<%= grunt.config.get('buildDir') %>/js",
@@ -146,19 +152,19 @@ module.exports = function(grunt) {
     });
   });
 
-  // grunt.loadNpmTasks("grunt-sass");
+  grunt.loadNpmTasks("grunt-sass");
   grunt.loadNpmTasks("grunt-config");
   grunt.loadNpmTasks("grunt-webpack");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-copy");
-  // grunt.loadNpmTasks("grunt-contrib-jade");
+  grunt.loadNpmTasks("grunt-contrib-jade");
   grunt.loadNpmTasks("grunt-contrib-clean");
   grunt.loadNpmTasks("grunt-notify");
   grunt.loadNpmTasks("grunt-zip");
 
-  grunt.registerTask("main", ["clean", "webpack", "copy"]);
+  grunt.registerTask("main", ["clean", "webpack", "sass", "jade", "copy"]);
 
   var defaultTasks = ["config:dev", "main"];
   if (grunt.option('reload-extension')) {
