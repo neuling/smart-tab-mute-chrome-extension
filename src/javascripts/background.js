@@ -1,7 +1,7 @@
 import { map, max } from 'lodash';
 
 const DEFAULT_STORAGE_DATA = {
-  ignoreList: 'messenger.com',
+  ignoreList: 'messenger.com\nslack.com',
   unmuteLastTab: true,
 }
 

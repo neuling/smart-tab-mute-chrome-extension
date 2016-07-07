@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Smute - Smart Tab Mute",
-  "description": "Ensures only one tab at once is playing sound",
+  "description": "Ensures that only one tab plays sound at the same time",
   "version": "1.0.0",
   "icons": {
     "16": "images/icon128.png",
