@@ -1,4 +1,4 @@
-# Smart Mute Chrome Extension
+# Smart Tab Mute Chrome Extension
 
 ## Development
 
@@ -23,4 +23,3 @@ grunt --reload-extension
 ```
 
 Open [chrome://extensions/](chrome://extensions/) and point the installation of an unpacked extension to the ./build folder
-
