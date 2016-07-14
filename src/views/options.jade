@@ -1,20 +1,20 @@
 html
   head
-    title Smute - Options
+    title Smart Tab Mute - Options
     link(href="css/options.css" rel="stylesheet" type="text/css")
   body
     form.options
       .option
         label
-          | Tabs including the following URLs will not mute other tabs
+          | Tabs including the following URLs will be ignored by Smart Tab Mute
           textarea(name="ignoreList" rows="5")
-          .hint One URL per line. Usefull for notification sounds like Facebook Messenger or Slack.
+          .hint Use this for sites playing short sounds for notifications or games
         
       .option
         label
           input(type="checkbox" name="unmuteLastTab")
           |  Unmute last tab
-          .hint Unmutes the last active tab before you opened a new one using audio.
+          .hint Unmutes the previously muted tab
           
     
     script(src="js/options.js" type="text/javascript")
